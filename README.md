@@ -19,30 +19,33 @@ a) Image processing. - Images were resized to 1024x1024 pixels. After that, I pr
 filter, and finally inpaint original and black-hat images. Otsu threshold coupled with morphological operations were used to segment two regions of interest (ROI) and the 
 background, the first ROI was the lesion and the second was the surrounding of the region.
 
-b) Feature extraction. - Color and texture – gray-level co-occurrence matrix (GLCM) – features were extracted. Regarding GLCM features, extraction was performed at three different 
-resolutions. A total of 254 features were obtained.
+b) Feature extraction. - Color and texture – gray-level co-occurrence matrix (GLCM) – features were extracted. Regarding GLCM features, extraction was performed at three 
+different resolutions. A total of 254 features were obtained.
 
-Feature                    Description                                   No. of Features
-Color     Color diversity per RGB, HSV and LAB channel                         9
-          Mean per RGB, HSV and LAB channel – lesion                           9
-          Mean per RGB, HSV and LAB channel – contour                          9
-          Std per RGB, HSV and LAB channel – lesion                            9
-          Std per RGB, HSV and LAB channel – contour                           9
-          Kurtosis per RGB, HSV and LAB channel – lesion                       9
-          Kurtosis per RGB, HSV and LAB channel – contour                      9
-          Skewness per RGB, HSV and LAB channel – lesion                       9
-          Skewness per RGB, HSV and LAB channel – contour                      9
-          Centroid distance per RGB, HSV and LAB channel                       9
-          LUV histograms L1-norm                                               1
-          LUV histograms L2-norm                                               1
-Texture   GLCM contrast per RGB, HSV and LAB channel                          27
-          GLCM correlation per RGB, HSV and LAB channel                       27
-          GLCM homogeneity per RGB, HSV and LAB channel                       27
-          GLCM dissimilarity per RGB, HSV and LAB channel                     27
-          GLCM angular second moment (ASM) per RGB, HSV and LAB channel       27
-          GLCM energy per RGB, HSV and LAB channel                            27
+Features                  
+Color:
+- Color diversity per RGB, HSV and LAB channel
+- Mean per RGB, HSV and LAB channel – lesion
+- Mean per RGB, HSV and LAB channel – contour
+- Std per RGB, HSV and LAB channel – lesion
+- Std per RGB, HSV and LAB channel – contour
+- Kurtosis per RGB, HSV and LAB channel – lesion
+- Kurtosis per RGB, HSV and LAB channel – contour
+- Skewness per RGB, HSV and LAB channel – lesion
+- Skewness per RGB, HSV and LAB channel – contour
+- Centroid distance per RGB, HSV and LAB channel
+- LUV histograms L1-norm
+- LUV histograms L2-norm
 
-c) Data transformation. - The Yeo-Johnson transformation [48] was applied to obtain a normal distribution for each feature, they were also normalized. Data extracted from lesion 
+Texture:
+- GLCM contrast per RGB, HSV and LAB channel
+- GLCM correlation per RGB, HSV and LAB channel
+- GLCM homogeneity per RGB, HSV and LAB channel
+- GLCM dissimilarity per RGB, HSV and LAB channel
+- GLCM angular second moment (ASM) per RGB, HSV and LAB channel
+- GLCM energy per RGB, HSV and LAB channel
+
+c) Data transformation. - The Yeo-Johnson transformation was applied to obtain a normal distribution for each feature, they were also normalized. Data extracted from lesion 
 was adjusted with the background.
 
 d) Classification. - The data was split in 70% training and 30% testing sets. The features were selected using Wilcoxon test. The classification was performed using five 
